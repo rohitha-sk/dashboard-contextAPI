@@ -10,7 +10,7 @@ Overview
 I generated code with prop drilling using Claude AI, then solved it step-by-step using Context API, and finally refactored it into a custom hook.
 this is the code before simplifying with contextAPI. after the code, I have explained the process of adding contextAPI step by step.
 
-=============================================================================================================
+==========================================================================================
 import { useState } from 'react';
 
 // Top level component
@@ -109,7 +109,7 @@ function App() {
   );
 }
 
-// Level 1: Dashboard uses theme for styling AND passes everything down
+======================================================================
 function Dashboard({ theme, notifications, isCollapsed, filterPriority, toggleThemeColor, changeFontSize, toggleBorderRadius, changeAnimationSpeed, markAsRead, markAllAsRead, deleteNotification, addNotification, setIsCollapsed, setFilterPriority }) {
   const bgColor = theme.primaryColor === 'blue' ? 'bg-blue-50' : theme.primaryColor === 'purple' ? 'bg-purple-50' : 'bg-green-50';
   const borderColor = theme.primaryColor === 'blue' ? 'border-blue-300' : theme.primaryColor === 'purple' ? 'border-purple-300' : 'border-green-300';
@@ -154,7 +154,7 @@ function Dashboard({ theme, notifications, isCollapsed, filterPriority, toggleTh
   );
 }
 
-// Level 2: Sidebar uses notifications count AND passes everything down
+======================================================================
 function Sidebar({ theme, notifications, filterPriority, toggleThemeColor, changeFontSize, toggleBorderRadius, changeAnimationSpeed, markAsRead, markAllAsRead, deleteNotification, addNotification, setFilterPriority }) {
   const unreadCount = notifications.filter(n => !n.read).length;
   const bgColor = theme.primaryColor === 'blue' ? 'bg-blue-100' : theme.primaryColor === 'purple' ? 'bg-purple-100' : 'bg-green-100';
@@ -229,7 +229,7 @@ function Sidebar({ theme, notifications, filterPriority, toggleThemeColor, chang
   );
 }
 
-// Level 3: NotificationPanel needs theme and notifications
+======================================================================
 function NotificationPanel({ theme, notifications, filterPriority, toggleThemeColor, changeFontSize, toggleBorderRadius, changeAnimationSpeed, markAsRead, deleteNotification }) {
   const textSize = theme.fontSize === 'small' ? 'text-xs' : theme.fontSize === 'medium' ? 'text-sm' : 'text-base';
   const transitionSpeed = theme.animationSpeed === 'fast' ? 'transition-all duration-150' : theme.animationSpeed === 'normal' ? 'transition-all duration-300' : 'transition-all duration-500';
@@ -315,7 +315,7 @@ function NotificationPanel({ theme, notifications, filterPriority, toggleThemeCo
   );
 }
 
-// Level 4: NotificationItem only needs notification, theme, and actions
+======================================================================
 function NotificationItem({ notification, theme, markAsRead, deleteNotification }) {
   const [isHovered, setIsHovered] = useState(false);
   
@@ -368,7 +368,7 @@ function NotificationItem({ notification, theme, markAsRead, deleteNotification 
 
 export default App;
 
-=============================================================================================================
+================================================================================
 
 Step-by-Step Process
 
