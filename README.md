@@ -5,6 +5,7 @@ solving propdrilling problem using contextAPI
 
 
 Note: This guide focuses on the Context API implementation. UI design is not the primary concern.
+
 Overview
 I generated code with prop drilling using Claude AI, then solved it step-by-step using Context API, and finally refactored it into a custom hook.
 this is the code before simplifying with contextAPI. after the code, I have explained the process of adding contextAPI step by step.
